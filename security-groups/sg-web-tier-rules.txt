@@ -1,0 +1,11 @@
+Security Group Name: CE-Web-SG
+Purpose: Public-facing web servers
+
+Inbound:
+- Port 80 (HTTP) | Source: 0.0.0.0/0 | Justification: Allow standard web traffic from any user.
+- Port 443 (HTTPS) | Source: 0.0.0.0/0 | Justification: Allow secure encrypted web traffic.
+- Port 22 (SSH) | Source: CE-Bastion-SG (ID) | Justification: Management access only via the jump host.
+
+Outbound:
+- Port 8080 (TCP) | Destination: CE-App-SG (ID) | Justification: Forward requests to backend application tier.
+- Port 443 (HTTPS) | Destination: 0.0.0.0/0 | Justification: Standard egress for updates and external API calls.

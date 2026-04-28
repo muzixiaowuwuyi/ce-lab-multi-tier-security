@@ -1,0 +1,9 @@
+Security Group Name: CE-DB-SG
+Purpose: Database servers (simulated)
+
+Inbound:
+- Port 3306 (MySQL) | Source: CE-App-SG (ID) | Justification: Only allow database connections from the application tier.
+- Port 22 (SSH) | Source: CE-Bastion-SG (ID) | Justification: Maintenance access only via the jump host.
+
+Outbound:
+- Port 443 (HTTPS) | Destination: 0.0.0.0/0 | Justification: Restricted egress for system updates only.

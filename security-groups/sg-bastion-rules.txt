@@ -1,0 +1,11 @@
+Security Group Name: CE-Bastion-SG
+Purpose: SSH jump host for accessing private instances
+
+Inbound:
+- Port 22 (SSH) | Source: 178.27.203.22/32 | Justification: Restricted management access from administrator's home IP only.
+
+Outbound:
+- Port 22 (SSH) | Destination: CE-Web-SG (ID) | Justification: Internal jump to web tier.
+- Port 22 (SSH) | Destination: CE-App-SG (ID) | Justification: Internal jump to app tier.
+- Port 22 (SSH) | Destination: CE-DB-SG (ID) | Justification: Internal jump to database tier.
+- Port 443 (HTTPS) | Destination: 0.0.0.0/0 | Justification: Allow OS security patches and software updates.

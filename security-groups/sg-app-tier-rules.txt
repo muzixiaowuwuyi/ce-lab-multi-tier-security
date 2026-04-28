@@ -1,0 +1,10 @@
+Security Group Name: CE-App-SG
+Purpose: Backend application servers
+
+Inbound:
+- Port 8080 (TCP) | Source: CE-Web-SG (ID) | Justification: Only accept application requests from the web tier.
+- Port 22 (SSH) | Source: CE-Bastion-SG (ID) | Justification: Management access only via the jump host.
+
+Outbound:
+- Port 3306 (MySQL) | Destination: CE-DB-SG (ID) | Justification: Allow database queries to the storage tier.
+- Port 443 (HTTPS) | Destination: 0.0.0.0/0 | Justification: Allow application runtime updates.
