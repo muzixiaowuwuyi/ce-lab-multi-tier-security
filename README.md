@@ -15,7 +15,7 @@ Document:
 
 
 ## Testing methodology and results
-
+    We followed a dual-testing approach: first, Negative Testing to ensure unauthorized cross-tier access (e.g., Web to DB) was blocked with a TIMEOUT. Second, Positive Testing using nc -zv and curl to verify that authorized traffic flowed correctly between the Web, App, and Database tiers.
 
 ## Challenges and learnings
-
+    The biggest challenge was managing SSH connectivity without exposing private keys; I learned how to use SSH Agent Forwarding (ssh -A) to solve this. I also gained a deep understanding of why Security Group Referencing is superior to IP-based rules for building dynamic, scalable, and secure cloud environments.
